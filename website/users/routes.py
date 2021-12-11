@@ -99,7 +99,7 @@ def reset_token(token):
   user = User.verify_reset_token(token)
   if user is None:
     flash('That is an invalid token', 'warning')
-    return redirect(url_for('reset_request'))
+    return redirect(url_for('users.reset_request'))
   form = ResetPasswordForm()
   if form.validate_on_submit():
       hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8') # Hash the password given 
