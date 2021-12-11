@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }} <!-- Hid the form in the POST request, as it has the password -->
+
+            <!-- Login form -->
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Reset Password</legend> <!-- Title -->
+                <div class="form-group">  
+                    {{ form.password.label(class="form-control-label") }} <!-- password label -->
+                    {% if form.password.errors %} <!-- If the password does not meet the requirements -->
+                        {{ form.password(class="form-control form-control-lg is-invalid") }} 
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span> <!-- Display the errors below the box in red -->
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg") }} 
+                    {% endif %}
+                 </div>
+                 <div class="form-group">  
+                  {{ form.confirm_password.label(class="form-control-label") }} <!-- confirm_password label -->
+                  {% if form.confirm_password.errors %} <!-- If the confirm_password does not meet the requirements -->
+                      {{ form.confirm_password(class="form-control form-control-lg is-invalid") }} 
+                      <div class="invalid-feedback">
+                          {% for error in form.confirm_password.errors %}
+                              <span>{{ error }}</span> <!-- Display the errors below the box in red -->
+                          {% endfor %}
+                      </div>
+                  {% else %}
+                      {{ form.confirm_password(class="form-control form-control-lg") }} 
+                  {% endif %}
+               </div>
+            </fieldset>
+
+            <!-- Submit button -->
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }} 
+            </div>
+        </form>
+    </div>
+{% endblock content %}
