@@ -41,7 +41,7 @@
                 <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Account</a> <!-- Option to access the account -->
                 <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a> <!-- Option to logout -->
               {% else %}
-                <a href="{{ url_for('users.login') }}" class="btn btn-info btn-sm">Log in</a>
+                <a class="nav-item nav-link" href="{{ url_for('users.login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a> <!-- Option to login -->
                 <a class="nav-item nav-link" href="{{ url_for('users.register') }}"><span class="glyphicon glyphicon-user"></span> Register</a> <!-- Option to register -->
               {% endif %}
 
